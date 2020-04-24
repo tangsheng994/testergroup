@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "平安银行网点赋能测试组",
+  "usingComponents": {
+    "i-card": "../../dist/card/index",
+    "i-icon": "../../dist/icon/index",
+    "i-modal": "../../dist/modal/index"
+  }
+}

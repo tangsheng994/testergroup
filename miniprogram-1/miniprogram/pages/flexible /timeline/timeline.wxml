@@ -1,0 +1,15 @@
+<wxs src="../../../utils/utils.wxs" module="ToolUtils"></wxs>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+</cu-custom>
+<view class="cu-timeline" wx:for="{{list}}" wx:key="index">
+  <view class="cu-time">{{ToolUtils.spstr(item.subtime)[0]}}</view>
+  <view class="cu-item {{index%2==0?'text-orange':'text-blue'}}">
+    <view class="content {{index%2==0?'bg-orange':'bg-blue'}}">
+      <text>{{ToolUtils.spstr(item.subtime)[1]}}</text> {{ToolUtils.jsontostr(item)}}
+    </view>
+  </view>
+  </view>
+  <view class="padding-xl">
+  <button class="cu-btn block line-orange lg" bindtap="sendmail">
+    <text class="cuIcon-link"></text> 获取excel下载地址</button>
+</view>

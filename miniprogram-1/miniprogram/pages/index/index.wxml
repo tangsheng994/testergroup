@@ -1,0 +1,19 @@
+<!--pages/myinfo/myinfo.wxml thumb="{{userInfo.avatarUrl}}"-->
+<!-- <text>pages/myinfo/myinfo.wxml</text> -->
+<!-- <wxs src="../../utils/utils.wxs" module="tools" /> -->
+<view class="content" wx:for="{{queryResult}}" wx:key="index" bindlongtap="navtomemberlist" data-testgroup="{{ item.testgroup }}" data-groupleader="{{item.groupleader}}">
+  <i-card class="item" title="{{item.testgroup}}" extra="">
+    <view slot="content">
+      <icon bindtap="getprogramdetail" data-groupleader="{{item.groupleader}}" wx:if="{{item.sex=='M'}}" class="fa fa-mars" aria-hidden="true"></icon>
+      <icon bindtap="getprogramdetail" data-groupleader="{{item.groupleader}}" wx:elif="{{item.sex=='F'}}" class="fa fa-venus" aria-hidden="true"></icon> 组长：{{item.groupleader}}</view>
+    <view slot="footer" data-tel="{{item.tel}}">
+      <icon data-tel="{{item.tel}}" class="fa fa-phone" aria-hidden="true"></icon> 电话：{{item.tel}}</view>
+  </i-card>
+</view>
+<i-modal title="{{waitshowname}}项目投入情况" visible="{{ isprogramemoduleshow }}" bind:ok="handleClose1" bind:cancel="handleClose1">
+  <view class="content" wx:for="{{programenamelist}}" wx:key="index">
+    <view slot="content">
+      <view>{{item.programename}}:{{item.rate}}</view>
+    </view>
+  </view>
+</i-modal>

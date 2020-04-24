@@ -1,0 +1,57 @@
+<wxs src="../../utils/utils.wxs" module="ToolUtils"></wxs>
+<view class="i-swipeout-demo">
+  <!-- <view class="i-swipeout-demo-title">培训列表</view> -->
+  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{120}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{list}}" wx:key="index" data-id="{{item._id}}" bindlongtap="comments">
+    <view slot="content">
+      <view class="i-swipeout-image">
+        <i-icon size="20" color="#FFFFFF" type="iconfong iconkecheng1"></i-icon>
+      </view>
+      <view class="i-swipeout-des">
+        <view class="i-swipeout-des-h2">{{item.title}}</view>
+        <view class="i-swipeout-des-detail">{{item.teacher}}----{{item.date}}</view>
+      </view>
+    </view>
+    <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
+      <view wx:if="{{ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:60px" bindtap="onAddtrainingorpj" data-id="{{item._id}}">
+        <i-icon size="32" type="iconfong iconpingjia"></i-icon>
+      </view>
+      <view wx:if="{{!ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:60px">
+        <button size="32" data-title="{{item.title}}" data-teacher="{{item.teacher}}" data-date="{{item.date}}" open-type="share" style="color:#fff;background-color:#1E90FF">
+          <i-icon size="32" type="share_fill"></i-icon>
+        </button>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:60px" bindtap="fanhui">
+        <i-icon size="32" type="undo"></i-icon>
+      </view>
+    </view>
+  </i-swipeout>
+</view>
+<i-button type="default" data-id="0" bindtap="onAddtrainingorpj">新增培训</i-button>
+<view>
+  <print-popups ifOpen='{{modelStatus}}' bind:ifClose='closeModel'>
+    <view slot='popups_main' class='popups_main'>
+      <view class='popups_item'>{{issubassess?'新增评价':'新增培训'}}</view>
+      <view class="line"></view>
+      <i-input wx:if="{{!issubassess}}" title="培训课题" autofocus placeholder="培训课题" bind:change="gettitle" />
+      <i-cell-group wx:if="{{!issubassess}}">
+        <view class='section'>
+          <i-button bind:click="showDatePicker" type="primary" size="small" style="width:40%">培训日期</i-button>
+          <i-input value="{{ date }}" style="width:60%;margin-top: 12rpx;" disabled="true" />
+        </view>
+        <date-picker id="date-picker" value="{{datePickerValue}}" isShow="{{datePickerIsShow}}" bindsureclick="datePickerOnSureClick" bindcancelclick="datePickerOnCancelClick" />
+        <i-input title="培训讲师" placeholder="培训讲师" bind:change="getteacher" />
+      </i-cell-group>
+      <i-cell-group wx:if="{{issubassess}}">
+      <i-input type="textarea" title="学习感受" placeholder="请输入学习感受(最多150字)" maxlength="150" bind:change="getdescriptions" />
+        <i-cell title="打分">
+          <i-rate count="{{10}}" bind:change="onChange" value="{{starIndex}}">
+            {{starIndex}}星
+          </i-rate>
+        </i-cell>
+        <i-input title="评价人" placeholder="评价人" bind:change="getname" />
+      </i-cell-group>
+      <i-toast id="toast" />
+      <i-button bind:click="addtrainingorpj" type="success ">{{issubassess?'添加评价':'添加培训'}}</i-button>
+    </view>
+  </print-popups>
+</view>

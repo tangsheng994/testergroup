@@ -1,0 +1,33 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <i-panel title="填写收集项">
+    <view class="cu-form-group" wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.type=='input'}}" >
+		<view class="title">{{item.name}}</view>
+		<input name="{{item.name}}" placeholder="{{item.name}}"></input>
+	</view>
+    <i-cell-group wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.name=='性别'}}">
+      <i-cell title="性别">
+        <radio-group class="radio-group" name="{{item.name}}">
+          <label>
+            <radio value="M" />男</label>
+          <label>
+            <radio value="F" />女</label>
+        </radio-group>
+      </i-cell>
+    </i-cell-group>
+    <i-cell-group wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.name=='正编/外包'}}">
+      <i-cell title="正编/外包">
+        <radio-group class="radio-group" name="{{item.name}}">
+          <label>
+            <radio value="N" />正编</label>
+          <label>
+            <radio value="Y" />外包</label>
+        </radio-group>
+      </i-cell>
+    </i-cell-group>
+  </i-panel>
+  <view class="line"></view>
+  <i-toast id="toast" />
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg" form-type="submit">提交信息</button>
+  </view>
+</form>

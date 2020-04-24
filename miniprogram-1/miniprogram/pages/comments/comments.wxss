@@ -1,0 +1,5 @@
+/* miniprogram/pages/comments/comments.wxss */
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}

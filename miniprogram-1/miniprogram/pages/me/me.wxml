@@ -1,0 +1,43 @@
+<view class="bg text-grey bg-white shadow-warp">
+  <view class="head">
+    <view class="headIcon">
+      <image src="{{userInfo.avatarUrl}}" style="border:2px solid white;width:90px;height:90px;"></image>
+    </view>
+    <view class="login">
+      {{userInfo.nickName}}
+    </view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/meeting/meeting" hover-class="none">
+        <text class="cuIcon-friend text-blue"></text>
+        <text class="text-grey">测试例会</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/training/training" hover-class="none">
+        <text class="cuIcon-upstage text-yellow"></text>
+        <text class="text-grey">培训管理</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/testeq/testeq" hover-class="none">
+        <text class="cuIcon-mobile text-red"></text>
+        <text class="text-grey">设备管理</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/flexible /formlist/formlist" hover-class="none">
+        <text class="cuIcon-newshot text-purple"></text>
+        <text class="text-grey">灵活表单</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/faq/faq" hover-class="none">
+        <text class="cuIcon-creativefill text-green"></text>
+        <text class="text-grey">FAQ</text>
+        </navigator>
+    </view>
+    </view>
+  <view class="cu-tabbar-height"></view>

@@ -1,0 +1,7 @@
+<wxs src="../../utils/utils.wxs" module="ToolUtils"></wxs>
+<view class="content" wx:for="{{queryResult}}" wx:key="index" bindtap="navtoprogramememberlist" data-programename="{{ item.programename }}">
+  <i-card class="item" title="{{item.programename}}" extra="">
+    <view slot="content"><text class="iconfont iconbili"></text> {{item.membersList.length}}/{{alltesters}}</view>
+    <view slot="footer"><i-progress percent="{{ToolUtils.savetwonumber(item.membersList.length,alltesters)}}" status="wrong"></i-progress></view>
+  </i-card>
+</view>

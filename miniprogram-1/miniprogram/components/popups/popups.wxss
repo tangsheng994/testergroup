@@ -1,0 +1,35 @@
+/* components/popups/popups.wxss */
+/* 遮罩 */
+.popups_shade {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.7;
+  overflow: hidden;
+}
+/* 弹出层内容 */
+.popups_content {
+  width: 600rpx;
+  height: 850rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  z-index: 1001;
+  background: #FAFAFA;
+  border-radius: 5px;
+}
+.popups_close {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}

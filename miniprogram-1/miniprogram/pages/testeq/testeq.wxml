@@ -1,0 +1,53 @@
+<view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" wx:for="{{list}}" wx:key="index">
+  <view class="content">
+    <view data-index='{{index}}' wx:if="{{ item.status==1 }}" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchE" bindtap="onAddorupeq" data-id="{{item._id}}" data-eqname='{{item.eqname}}' data-eqno='{{item.eqno}}' data-ostype='{{item.ostype}}' data-charge='{{item.charge}}'>
+      <i-cell-group>
+        <i-cell title="{{item.eqname}} {{ item.charge }}" value="资产编号:{{item.eqno}}">
+          <i-icon type="iconfont {{item.ostype=='ios'? 'iconios':'iconRoundAndroidColor'}}" slot="icon" />
+        </i-cell>
+      </i-cell-group>
+      <view class="line"></view>
+    </view>
+    <view data-index='{{index}}' wx:elif="{{ item.status==0 }}" disabled="true" data-name='{{item.eqno}}'>
+      <i-cell-group>
+        <i-cell style="text-decoration:line-through" title="{{item.eqname}} 待报废" value="资产编号:{{item.eqno}}">
+          <i-icon type="iconfont {{item.ostype=='ios'? 'iconios':'iconRoundAndroidColor'}}" slot="icon" />
+        </i-cell>
+      </i-cell-group>
+      <view class="line"></view>
+    </view>
+  </view>
+  <view class="del" wx:if="{{ item.status==1 }}" data-id="{{item._id}}" data-eqname="{{item.eqname}}" data-ostype="{{item.ostype}}" data-charge="{{item.charge}}" data-eqno="{{item.eqno}}" catchtap="delBtn" data-index="{{index}}">报废</view>
+</view>
+<i-button type="default" data-id="null" bindtap="onAddorupeq">新增设备</i-button>
+<view>
+  <print-popups ifOpen='{{modelStatus}}' bind:ifClose='closeModel'>
+    <view slot='popups_main' class='popups_main'>
+      <view class='popups_item'>{{addeq? '添加新设备':'修改设备'}}</view>
+      <i-cell-group>
+        <i-input title="设备名称" value="{{addeq? '':eqname}}" autofocus placeholder="设备名称" bind:change="getEqname" />
+        <view class="line"></view>
+        <i-cell title="机型">
+        <radio-group class="radio-group" bindchange="handlesostypeChange">
+            <label class="radio">
+              android
+              <radio value="android" checked="{{ ostype=='ios'? false:true }}" />
+            </label>
+            <label class="radio ">
+              ios
+              <radio value="ios" checked="{{ ostype=='ios'? true:false }}" />
+            </label>
+            </radio-group></i-cell>
+            <view class="line"></view>
+            <view class='section'>
+            <i-button bind:click="scan" type="primary" size="small" style="width:40%">扫码</i-button>
+            <i-input value="{{addeq? '':eqno}}" style="width:60%;margin-top: 10rpx;" />
+            </view>
+        <i-input title="责任人" value="{{addeq? '':charge}}" autofocus placeholder="责任人" bind:change="getCharge" />
+        <view class="line"></view>
+        <i-button bind:click="addorupeq" type="success">提交</i-button>
+        <i-toast id="toast" />
+      </i-cell-group>
+    </view>
+  </print-popups>
+</view>

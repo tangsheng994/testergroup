@@ -1,0 +1,34 @@
+<wxs src="../../utils/utils.wxs" module="ToolUtils" ></wxs>
+<view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" wx:for="{{list}}" wx:key="index">
+  <view class="content">
+    <view data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchE" data-id="{{item._id}}" data-name="{{item.name}}" bindtap="onAddorupdatemember">
+      <i-cell-group>
+        <i-cell title="成员:{{item.name}}" value="">
+          <i-icon type="mine_fill" slot="icon" /><i-progress percent="{{ToolUtils.deletelastword(item.rate)}}"></i-progress>
+        </i-cell>
+      </i-cell-group>
+      <view class="line"></view>
+    </view>
+  </view>
+  <view class="del" data-id="{{item._id}}" catchtap="delBtn" data-index="{{index}}">删除</view>
+</view>
+<i-button type="default" data-id="null" bindtap="onAddorupdatemember">新增项目成员</i-button>
+<view>
+  <print-popups ifOpen='{{modelStatus}}' bind:ifClose='closeModel'>
+    <view slot='popups_main' class='popups_main'>
+    <view class='popups_item'>{{addmember ? '新增项目成员' : '修改投入比'}}</view>
+    <i-cell-group>
+        <i-input wx:if="{{addmember}}" title="姓名" value="" autofocus placeholder="名字" bind:change="getName"/>
+        <i-input wx:elif="{{!addmember}}" title="姓名" value="{{ name }}" autofocus placeholder="名字" disabled />
+        <view class='popups_item'>投入比</view>
+        <view class="progress-item">
+    <i-progress percent="{{percent}}" status="{{ status }}"></i-progress>
+    <i-button bindclick="handleAdd" type="ghost">增加</i-button>
+    <i-button bindclick="handleReduce" type="ghost">减少</i-button>
+</view>
+        <i-button bind:click="addorupdatemember" type="success">{{addmember ? '提交' : '调整'}}</i-button>
+        <i-toast id="toast" />
+        </i-cell-group>
+    </view>
+  </print-popups>
+</view>

@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "创建表单",
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-button": "../../dist/button/index",
+    "i-checkbox-group": "../../dist/checkbox-group/index",
+    "i-checkbox": "../../dist/checkbox/index",
+    "i-panel": "../../dist/panel/index",
+    "i-grid": "../../dist/grid/index",
+    "i-grid-item": "../../dist/grid-item/index",
+    "i-grid-icon": "../../dist/grid-icon/index",
+    "i-grid-label": "../../dist/grid-label/index",
+    "i-toast": "../../dist/toast/index",
+    "i-icon": "../../dist/icon/index"
+  }
+}

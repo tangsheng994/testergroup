@@ -1,0 +1,61 @@
+<view class="item" wx:for="{{list}}" wx:key="index">
+  <i-card title="{{item.title}}" extra="负责人:{{item.charge}}" data-index="{{index}}" data-id="{{item._id}}" data-title="{{item.title}}" data-descriptions="{{item.descriptions}}" data-deadline="{{item.deadline}}" data-charge="{{item.change}}" bindtap="onAddorupdateitem">
+    <view slot="content">{{item.descriptions}}</view>
+    <view slot="footer">计划完成时间:{{item.deadline}}</view>
+  </i-card>
+  <i-steps class="steps">
+    <i-step status="{{item.status==0 ? 'process' : ''}}" icon="iconfont iconjinhangzhong">
+      <view slot="title">
+        进行中
+      </view>
+    </i-step>
+    <i-step status="{{item.status==1 ? 'process' : ''}}" icon="iconfont iconzusaix">
+      <view slot="title">
+        阻塞
+      </view>
+    </i-step>
+    <i-step status="{{item.status==2 ? 'process' : ''}}" icon="iconfont iconwancheng">
+      <view slot="title">
+        完成
+      </view>
+    </i-step>
+  </i-steps>
+</view>
+<i-button type="default" data-id="null" bindtap="onAddorupdateitem">新增事项</i-button>
+<view>
+  <print-popups ifOpen='{{modelStatus}}' bind:ifClose='closeModel'>
+    <view slot='popups_main' class='popups_main'>
+      <view class='popups_item'>{{isadditem ? '新增事项' : '修改事项'}}</view>
+      <view class="line"></view>
+      <i-cell-group>
+        <view class='section'>
+          <i-button bind:click="showDatePicker" type="primary" size="small" style="width:40%">计划完成日</i-button>
+          <i-input value="{{deadline}}" style="width:60%;margin-top: 12rpx;" bind:change="getdeadline" disabled="true" />
+        </view>
+        <date-picker id="date-picker" value="{{datePickerValue}}" isShow="{{datePickerIsShow}}" bindsureclick="datePickerOnSureClick" bindcancelclick="datePickerOnCancelClick" />
+        <i-input title="事项概述" value="{{isadditem?'':title}}" autofocus placeholder="事项概述" bind:change="gettitle" />
+        <i-input value="{{isadditem?'':descriptions}}" type="textarea" title="进展描述" placeholder="请输入进展描述(最多250字)" maxlength="250" bind:change="getdescriptions" />
+        <i-cell title="事项状态">
+          <radio-group class="radio-group" bindchange="handlestatusChange">
+            <label class="radio">
+              进行中
+              <radio value="0" checked="" />
+            </label>
+            <label class="radio ">
+              阻塞
+              <radio value="1" checked=" " />
+            </label>
+            <label class="radio ">
+              完成
+              <radio value="2" checked=" " />
+            </label>
+          </radio-group>
+        </i-cell>
+        <view class="line"></view>
+        <i-input title="负责人" value="{{isadditem?'':charge}}" autofocus placeholder="负责人" bind:change="getcharge" />
+        <i-button bind:click="additem" type="success ">{{isadditem ? '添加事项' : '修改事项'}}</i-button>
+        <i-toast id="toast" />
+      </i-cell-group>
+    </view>
+  </print-popups>
+</view>

@@ -1,0 +1,119 @@
+<!--miniprogram/pages/flexible /formstart/formstart.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <i-panel title="表单标题">
+    <!-- <i-input name="formname" title="表单标题" autofocus placeholder="表单标题" /> -->
+    <view class="cu-form-group margin-top">
+		<view class="title">表单标题</view>
+		<input name="formname" placeholder="表单标题"></input>
+	</view>
+  </i-panel>
+  <view class="line"></view>
+  <i-panel title="常规信息">
+    <checkbox-group name="baseinfo">
+      <i-grid>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconxingming" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="姓名" />姓名</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconum" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="UM" />UM</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconshouji" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="手机号" />手机号</label>
+          </i-grid-label>
+        </i-grid-item>
+      </i-grid>
+      <i-grid>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconnianling" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="年龄" />年龄</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconxingbie" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="性别" />性别</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconneibu" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="正编/外包" />正编/外包</label>
+          </i-grid-label>
+        </i-grid-item>
+      </i-grid>
+      <i-grid>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconcredentials_icon" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="身份证" />身份证</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont icondizhi" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="住址" />住址</label>
+          </i-grid-label>
+        </i-grid-item>
+        <i-grid-item>
+          <i-grid-icon>
+            <i-icon type="iconfont iconbulashezhi" slot="icon" />
+          </i-grid-icon>
+          <i-grid-label>
+            <label>
+              <checkbox value="分组" />分组</label>
+          </i-grid-label>
+        </i-grid-item>
+      </i-grid>
+    </checkbox-group>
+  </i-panel>
+  <i-panel title="自定义项">
+    <view class="line"></view>
+    <i-input title="自定义项1名称" name="de1" placeholder="自定义项1名称" />
+    <view class="line"></view>
+    <i-input title="自定义项2名称" name="de2" placeholder="自定义项2名称" />
+    <view class="line"></view>
+    <i-input title="自定义项3名称" name="de3" placeholder="自定义项3名称" />
+    <view class="line"></view>
+    <i-input title="自定义项4名称" name="de4" placeholder="自定义项4名称" />
+    <view class="line"></view>
+    <i-input title="自定义项5名称" name="de5" placeholder="自定义项5名称" />
+    <view class="line"></view>
+  </i-panel>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg" form-type="submit">创建表单</button>
+  </view>
+  <i-toast id="toast" />
+</form>

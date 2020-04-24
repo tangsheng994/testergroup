@@ -1,0 +1,13 @@
+<!--miniprogram/pages/comments/comments.wxml-->
+<i-panel class="cell-panel-demo" title="带 icon 的 Cell" wx:for="{{list}}" wx:key="index">
+    <i-cell title="" value="{{item.name}}">
+        <i-cell title="{{item.descriptions}}">
+        <i-rate 
+            count="{{10}}"
+            value="{{item.rate}}">
+        </i-rate>
+    </i-cell>
+    </i-cell>
+    <view class="line"></view>
+</i-panel>
+

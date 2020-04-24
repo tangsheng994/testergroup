@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "测试例会",
+  "usingComponents": {
+    "i-card": "../../dist/card/index",
+    "i-steps": "../../dist/steps/index",
+    "i-step": "../../dist/step/index",
+    "i-button": "../../dist/button/index",
+    "print-popups": "/components/popups/popups",
+    "i-cell-group": "../../dist/cell-group/index",
+    "i-cell": "../../dist/cell/index",
+    "i-input": "../../dist/input/index",
+    "i-switch": "../../dist/switch/index",
+    "i-toast": "../../dist/toast/index",
+    "i-icon": "../../dist/icon/index",
+    "date-picker": "../../components/date-picker/date-picker"
+  }
+}

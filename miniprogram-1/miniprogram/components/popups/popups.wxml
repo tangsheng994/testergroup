@@ -1,0 +1,8 @@
+<!--components/popups/popups.wxml-->
+<view wx:if="{{ifOpen}}">
+  <view class='popups_shade' bindtap='popupsClose'></view>
+  <view class='popups_content'>
+    <image src='../../images/close.png' class='popups_close' bindtap='popupsClose'></image>
+    <slot name='popups_main'/>
+  </view>
+</view>

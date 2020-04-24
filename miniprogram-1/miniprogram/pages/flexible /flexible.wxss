@@ -1,0 +1,18 @@
+/* miniprogram/pages/flexible /flexible.wxss */
+.popups_item {
+  font-size: 14px;
+  line-height: 1;
+  color: #1c2438;
+  padding: 20px 16px 10px;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+.section{
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-start;
+}

@@ -1,0 +1,56 @@
+<view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" wx:for="{{list}}" wx:key="index">
+  <view class="content">
+    <view data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchE" bindtap="getprogramdetail" data-name='{{item.name}}'>
+      <i-cell-group>
+        <i-cell title="成员:{{item.name}}" value="电话:{{item.tel}}">
+          <i-icon bindtap="tel" data-tel="{{item.tel}}" wx:if="{{item.sex=='M'}}" class="fa fa-mars" aria-hidden="true" slot="icon" />
+          <i-icon bindtap="tel" data-tel="{{item.tel}}" wx:elif="{{item.sex=='F'}}" class="fa fa-venus" aria-hidden="true" slot="icon" />
+        </i-cell>
+      </i-cell-group>
+      <view class="line"></view>
+    </view>
+  </view>
+  <view class="del" data-id="{{item._id}}" catchtap="delBtn" data-index="{{index}}">删除</view>
+</view>
+<i-button type="default" bindtap="onAddmember">新增成员</i-button>
+<view>
+  <print-popups ifOpen='{{modelStatus}}' bind:ifClose='closeModel'>
+    <view slot='popups_main' class='popups_main'>
+      <view class='popups_item'>添加新成员</view>
+      <i-cell-group>
+        <i-input title="姓名" value="{{ name }}" autofocus placeholder="名字" bind:change="getName" />
+        <view class="line"></view>
+        <i-cell title="是否内部">
+          <i-switch value="{{isinner}}" size="large" bind:change="changeinner" slot="footer">
+            <view slot="open">是</view>
+            <view slot="close">否</view>
+          </i-switch>
+        </i-cell>
+        <view class="line"></view>
+        <i-cell title="性别">
+          <radio-group class="radio-group" bindchange="handlesexChange">
+            <label class="radio">
+              男
+              <radio value="M" checked="true" />
+            </label>
+            <label class="radio">
+              女
+              <radio value="F" checked="" />
+            </label>
+          </radio-group>
+        </i-cell>
+        <view class="line"></view>
+        <i-input type="number" title="联系电话" value="{{ tel }}" placeholder="请输入手机号" bind:change="getTel" />
+        <i-button bind:click="addm" type="success">提交</i-button>
+        <i-toast id="toast" />
+      </i-cell-group>
+    </view>
+  </print-popups>
+  <i-modal title="{{waitshowname}}项目投入情况" visible="{{ isprogramemoduleshow }}" bind:ok="handleClose1" bind:cancel="handleClose1">
+    <view class="content" wx:for="{{programenamelist}}" wx:key="index">
+      <view slot="content">
+        <view>{{item.programename}}:{{item.rate}}</view>
+      </view>
+    </view>
+  </i-modal>
+</view>

@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/memberlist/memberlist",
+    "pages/programs/programs",
+    "pages/programememberlist/programememberlist",
+    "pages/me/me",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "components/popups/popups",
+    "pages/meeting/meeting",
+    "pages/training/training",
+    "pages/comments/comments",
+    "pages/testeq/testeq",
+    "pages/flexible /flexible",
+    "pages/flexible /formlist/formlist",
+    "pages/flexible /formstart/formstart",
+    "pages/flexible /timeline/timeline",
+    "pages/faq/faq"
+  ],
+  "window": {
+    "backgroundColor": "#FF7F24",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF7F24",
+    "navigationBarTitleText": "平安银行网点赋能测试组",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "人员组织",
+        "iconPath": "./images/zuzhi.png",
+        "selectedIconPath": "./images/zuzhi-select.png"
+      },
+      {
+        "pagePath": "pages/programs/programs",
+        "text": "项目归属",
+        "iconPath": "./images/program.png",
+        "selectedIconPath": "./images/program-select.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "测试管理",
+        "iconPath": "./images/membership.png",
+        "selectedIconPath": "./images/membership-select.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap76.json"
+}
