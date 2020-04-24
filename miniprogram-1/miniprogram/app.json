@@ -6,7 +6,6 @@
     "pages/programs/programs",
     "pages/programememberlist/programememberlist",
     "pages/me/me",
-    "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
