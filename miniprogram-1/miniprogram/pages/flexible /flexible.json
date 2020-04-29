@@ -8,6 +8,7 @@
     "date-picker": "../../components/date-picker/date-picker",
     "i-button": "../../dist/button/index",
     "i-toast": "../../dist/toast/index",
-    "i-panel": "../../dist/panel/index"
+    "i-panel": "../../dist/panel/index",
+    "i-icon": "../../dist/icon/index"
   }
 }

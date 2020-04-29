@@ -27,6 +27,7 @@ Page({
   },
 
   onShareAppMessage:function(res){
+    this.fanhui();
     if(res.from=='button'){
       console.log(res.target.dataset,res)
     }
@@ -132,6 +133,7 @@ Page({
 
   //新增培训or评价
   onAddtrainingorpj: function(e) {
+    this.fanhui();
     if (e.currentTarget.dataset.id == 0) {
       this.setData({
         issubassess: false

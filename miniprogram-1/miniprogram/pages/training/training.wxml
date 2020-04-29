@@ -16,7 +16,7 @@
         <i-icon size="32" type="iconfong iconpingjia"></i-icon>
       </view>
       <view wx:if="{{!ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:60px">
-        <button size="32" data-title="{{item.title}}" data-teacher="{{item.teacher}}" data-date="{{item.date}}" open-type="share" style="color:#fff;background-color:#1E90FF">
+        <button size="32" data-title="{{item.title}}" data-teacher="{{item.teacher}}" data-date="{{item.date}}" open-type="share" style="color:#fff;background-color:#1E90FF;">
           <i-icon size="32" type="share_fill"></i-icon>
         </button>
       </view>

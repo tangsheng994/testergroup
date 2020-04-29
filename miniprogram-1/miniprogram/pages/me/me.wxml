@@ -10,9 +10,9 @@
 </view>
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/meeting/meeting" hover-class="none">
-        <text class="cuIcon-friend text-blue"></text>
-        <text class="text-grey">测试例会</text>
+      <navigator class="content" url="/pages/daily/daily" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">工作报告</text>
         </navigator>
     </view>
     <view class="cu-item arrow">

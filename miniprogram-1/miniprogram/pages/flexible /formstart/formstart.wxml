@@ -101,15 +101,9 @@
   </i-panel>
   <i-panel title="自定义项">
     <view class="line"></view>
-    <i-input title="自定义项1名称" name="de1" placeholder="自定义项1名称" />
-    <view class="line"></view>
-    <i-input title="自定义项2名称" name="de2" placeholder="自定义项2名称" />
-    <view class="line"></view>
-    <i-input title="自定义项3名称" name="de3" placeholder="自定义项3名称" />
-    <view class="line"></view>
-    <i-input title="自定义项4名称" name="de4" placeholder="自定义项4名称" />
-    <view class="line"></view>
-    <i-input title="自定义项5名称" name="de5" placeholder="自定义项5名称" />
+    <i-input wx:for="{{apppenddata}}" wx:key="index" title="{{item.title}}" name="{{item.name}}" placeholder="{{item.title}}" />
+    <button class="cu-btn block line-orange lg" bindtap="adddefine">
+    <text class="iconfont iconpictrue-add"></text> 新增自定义项</button>
     <view class="line"></view>
   </i-panel>
   <view class="padding flex flex-direction">

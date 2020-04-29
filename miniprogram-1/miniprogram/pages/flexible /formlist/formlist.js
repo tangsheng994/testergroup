@@ -110,7 +110,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    this.fanhui();
+    if (res.from == 'button') {
+      console.log(res.target.dataset, res)
+    }
+    return {
+      title: res.target.dataset.formname,
+      path: 'pages/flexible /flexible?id=' + res.target.dataset.id + '&formname=' + res.target.dataset.formname,
+      imageUrl: '../../../images/form.jpg'
+    }
   }
 })

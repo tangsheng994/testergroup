@@ -1,6 +1,3 @@
-<!--pages/myinfo/myinfo.wxml thumb="{{userInfo.avatarUrl}}"-->
-<!-- <text>pages/myinfo/myinfo.wxml</text> -->
-<!-- <wxs src="../../utils/utils.wxs" module="tools" /> -->
 <view class="content" wx:for="{{queryResult}}" wx:key="index" bindlongtap="navtomemberlist" data-testgroup="{{ item.testgroup }}" data-groupleader="{{item.groupleader}}">
   <i-card class="item" title="{{item.testgroup}}" extra="">
     <view slot="content">

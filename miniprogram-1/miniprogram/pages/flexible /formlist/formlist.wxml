@@ -1,5 +1,5 @@
 <view class="i-swipeout-demo">
-  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{180}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{list}}" wx:key="index" >
+  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{200}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{list}}" wx:key="index" >
     <view slot="content">
       <view class="i-swipeout-image">
         <i-icon size="20" color="#FFFFFF" type="iconfont iconbiaodan"></i-icon>
@@ -11,13 +11,18 @@
       </view>
     </view>
     <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
-      <view class="i-swipeout-demo-button" style="width:60px" bindtap="checkform" data-id="{{item._id}}" data-formname="{{item.formname}}">
+    <view class="i-swipeout-demo-button" style="width:50px">
+        <button size="32" data-id="{{item._id}}" data-formname="{{item.formname}}" open-type="share" style="color:#fff;background-color:#1E90FF;">
+          <i-icon size="32" type="share_fill"></i-icon>
+        </button>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:50px" bindtap="checkform" data-id="{{item._id}}" data-formname="{{item.formname}}">
         <i-icon size="32" type="iconfong iconpingjia"></i-icon>
       </view>
-      <view class="i-swipeout-demo-button" style="width:60px" data-id="{{item._id}}" data-formname="{{item.formname}}" bindtap="timeline">
+      <view class="i-swipeout-demo-button" style="width:50px" data-id="{{item._id}}" data-formname="{{item.formname}}" bindtap="timeline">
           <i-icon size="32" type="iconfong iconchakan"></i-icon>
       </view>
-      <view class="i-swipeout-demo-button" style="width:60px" bindtap="fanhui">
+      <view class="i-swipeout-demo-button" style="width:50px" bindtap="fanhui">
         <i-icon size="32" type="undo"></i-icon>
       </view>
     </view>

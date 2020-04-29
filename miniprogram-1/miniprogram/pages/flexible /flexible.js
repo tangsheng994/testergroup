@@ -19,51 +19,56 @@ Page({
     datePickerIsShow: false
   },
 
-  onShareAppMessage: function(e) {
-    return {
-      title: this.data.formname,
-      desc: '信息收集',
-      path: 'pages/flexible /flexible' // 路径，传递参数到指定页面。
-    }
-  },
-
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    var that = this;
-    var vData = e.detail.value;
-    vData.subtime = utils.formatTime(new Date());
-    console.log('formdata',vData);
-    console.log('id',that.data.id)
-    const db = wx.cloud.database({
-      env: 'kaka-1-2cxj6'
-    })
-    wx.cloud.callFunction({
-      name: 'updatedb',
-      data: {
-        table: 'flexible',
-        _id:that.data.id,
-        data: vData
-      },
-      success: function(res) {
-        $Toast({
-          content: '提交成功！',
-          type: 'success'
-        });
-        that.setData({
-          showModal: false,
-          modelStatus: false
-        });
-        console.log('[数据库] [修改记录] 成功，记录 _id: ', res._id)
-
-      },
-      fail: function(err) {
-        $Toast({
-          content: '修改失败！',
-          type: 'error'
-        });
-        console.error('[数据库] [修改记录] 失败：', err)
+    var isnull=false;
+    for (var key in e.detail.value) {
+      if(e.detail.value[key]==''){
+        isnull=true
       }
-    })
+    }
+    if(isnull){
+      $Toast({
+        content: '有必填项为空！',
+        type: 'error'
+      });
+    }else{
+      var that = this;
+      var vData = e.detail.value;
+      vData.subtime = utils.formatTime(new Date());
+      console.log('formdata', vData);
+      console.log('id', that.data.id)
+      const db = wx.cloud.database({
+        env: 'kaka-1-2cxj6'
+      })
+      wx.cloud.callFunction({
+        name: 'updatedb',
+        data: {
+          table: 'flexible',
+          _id: that.data.id,
+          data: vData
+        },
+        success: function (res) {
+          $Toast({
+            content: '提交成功！',
+            type: 'success'
+          });
+          that.setData({
+            showModal: false,
+            modelStatus: false
+          });
+          console.log('[数据库] [修改记录] 成功，记录 _id: ', res._id)
+
+        },
+        fail: function (err) {
+          $Toast({
+            content: '修改失败！',
+            type: 'error'
+          });
+          console.error('[数据库] [修改记录] 失败：', err)
+        }
+      })
+    }
   },
 
   showDatePicker: function(e) {
@@ -175,13 +180,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
 })

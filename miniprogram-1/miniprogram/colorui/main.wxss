@@ -1538,15 +1538,13 @@ button.icon.lg {
  ==================== */
 
 .cu-bar {
-	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 100rpx;
+	min-height: 50rpx;
 	justify-content: space-between;
 }
 
 .cu-bar .action {
-	display: flex;
 	align-items: center;
 	height: 100%;
 	justify-content: center;
@@ -3505,6 +3503,7 @@ scroll-view.cu-steps .cu-item {
 .bg-white {
 	background-color: var(--white);
 	color: var(--darkGray);
+  padding-top:1rem
 }
 
 .bg-shadeTop {

@@ -1,11 +1,16 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <i-panel title="填写收集项">
-    <view class="cu-form-group" wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.type=='input'}}" >
-		<view class="title">{{item.name}}</view>
+  <!-- <i-panel title="填写收集项"> -->
+  <view class="cu-bar bg-white solid-bottom"  wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.type=='input'}}">
+  <view class="action">
+    <text></text><i-icon color="red" type="iconfonf iconbitianfuhao" slot="icon" />{{item.name}}:
+  </view>
+    <view class="cu-form-group" >
 		<input name="{{item.name}}" placeholder="{{item.name}}"></input>
 	</view>
+  </view>
     <i-cell-group wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.name=='性别'}}">
-      <i-cell title="性别">
+      <i-cell title="">
+      <view><text></text><i-icon color="red" type="iconfonf iconbitianfuhao" slot="icon" />请选择{{item.name}}:</view>
         <radio-group class="radio-group" name="{{item.name}}">
           <label>
             <radio value="M" />男</label>
@@ -15,7 +20,8 @@
       </i-cell>
     </i-cell-group>
     <i-cell-group wx:for="{{tableheadlist}}" wx:key="index" wx:if="{{item.name=='正编/外包'}}">
-      <i-cell title="正编/外包">
+      <i-cell title="">
+      <view><text></text><i-icon color="red" type="iconfonf iconbitianfuhao" slot="icon" />请选择{{item.name}}:</view>
         <radio-group class="radio-group" name="{{item.name}}">
           <label>
             <radio value="N" />正编</label>
@@ -24,7 +30,7 @@
         </radio-group>
       </i-cell>
     </i-cell-group>
-  </i-panel>
+  <!-- </i-panel> -->
   <view class="line"></view>
   <i-toast id="toast" />
   <view class="padding flex flex-direction">
