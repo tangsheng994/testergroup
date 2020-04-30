@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "工作报告",
+  "usingComponents": {
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index",
+    "i-cell-group": "../../dist/cell-group/index",
+    "i-icon": "../../dist/icon/index",
+    "i-toast": "../../dist/toast/index",
+    "i-cell": "../../dist/cell/index"
+  }
+}

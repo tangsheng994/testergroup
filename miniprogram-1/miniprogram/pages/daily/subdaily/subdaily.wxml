@@ -1,0 +1,28 @@
+<wxs src="../../../utils/utils.wxs" module="ToolUtils"></wxs>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <!--选取时间段  -->
+  <view class='rui-nav-box'>
+    <view class='rui-nav-content'>
+      <view bindtap='getDateTypeR' data-datetype="now" class='{{dateTypeR == "now" ? "active" : ""}}'>日报</view>
+      <view bindtap='getDateTypeR' data-datetype="week" class='{{dateTypeR == "week" ? "active" : ""}}'>周报</view>
+      <view bindtap='getDateTypeR' data-datetype="month" class='{{dateTypeR == "month" ? "active" : ""}}'>月报</view>
+    </view>
+  </view>
+  <view style='padding: 0 15px 20px;' class='{{dateType == 4 ? "" : "rui-hide"}}'>
+    <view class='rui-picker-box'>
+      {{date}}
+    </view>
+  </view>
+  <view class="cu-form-group align-start">
+		<view class="title"><i-icon color="red" type="iconfonf iconbitianfuhao" slot="icon" />{{ToolUtils.changereport(dateTypeR)}}内容:</view>
+		<textarea maxlength="-1"  name="dailycontent" placeholder="请输入{{ToolUtils.changereport(dateTypeR)}}内容"></textarea>
+	</view>
+  <view class="cu-form-group">
+    <view class="title"><i-icon color="red" type="iconfonf iconbitianfuhao" slot="icon" />姓名:</view>
+    <input type="date" name="name" placeholder="请输入姓名"></input>
+  </view>
+  <view class="line"></view>
+  <button class="cu-btn block line-orange lg" form-type="submit" style="margin-top:1rem">
+    <text class="iconfont iconpictrue-add"></text> 提交{{ToolUtils.changereport(dateTypeR)}}</button>
+    <i-toast id="toast" />
+</form>

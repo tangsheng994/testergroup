@@ -1,0 +1,29 @@
+<view class="i-swipeout-demo">
+  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{200}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{groups}}" wx:key="index" >
+    <view slot="content">
+      <view class="i-swipeout-image">
+        <i-icon size="20" color="#FFFFFF" type="iconfont iconbiaodan"></i-icon>
+      </view>
+      <view class="i-swipeout-des">
+        <view class="i-swipeout-des-h2">{{item.testgroup}}</view>
+        <view style="text-align:right;">共{{item.dailyData.length}}份工作报告</view>
+      </view>
+    </view>
+    <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
+    <view class="i-swipeout-demo-button" style="width:50px">
+        <button size="32" data-id="{{item._id}}" data-formname="{{item.formname}}" open-type="share" style="color:#fff;background-color:#1E90FF;">
+          <i-icon size="32" type="share_fill"></i-icon>
+        </button>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:50px" bindtap="subdaily" data-id="{{item._id}}" data-testgroup="{{item.testgroup}}">
+        <i-icon size="32" type="iconfong iconpingjia"></i-icon>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:50px" data-id="{{item._id}}" data-formname="{{item.formname}}" bindtap="timeline">
+          <i-icon size="32" type="iconfong iconchakan"></i-icon>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:50px" bindtap="fanhui">
+        <i-icon size="32" type="undo"></i-icon>
+      </view>
+    </view>
+  </i-swipeout>
+</view>

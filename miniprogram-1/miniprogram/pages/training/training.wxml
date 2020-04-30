@@ -1,7 +1,6 @@
 <wxs src="../../utils/utils.wxs" module="ToolUtils"></wxs>
 <view class="i-swipeout-demo">
-  <!-- <view class="i-swipeout-demo-title">培训列表</view> -->
-  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{120}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{list}}" wx:key="index" data-id="{{item._id}}" bindlongtap="comments">
+  <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{ToolUtils.comparedate(item.date,today)?150:100}}" unclosable="{{true}}" toggle="{{toggle}}" wx:for="{{list}}" wx:key="index">
     <view slot="content">
       <view class="i-swipeout-image">
         <i-icon size="20" color="#FFFFFF" type="iconfong iconkecheng1"></i-icon>
@@ -12,15 +11,18 @@
       </view>
     </view>
     <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
-      <view wx:if="{{ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:60px" bindtap="onAddtrainingorpj" data-id="{{item._id}}">
+      <view wx:if="{{ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:50px" bindtap="onAddtrainingorpj" data-id="{{item._id}}">
         <i-icon size="32" type="iconfong iconpingjia"></i-icon>
       </view>
-      <view wx:if="{{!ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:60px">
+      <view wx:if="{{!ToolUtils.comparedate(item.date,today)}}" class="i-swipeout-demo-button" style="width:50px">
         <button size="32" data-title="{{item.title}}" data-teacher="{{item.teacher}}" data-date="{{item.date}}" open-type="share" style="color:#fff;background-color:#1E90FF;">
           <i-icon size="32" type="share_fill"></i-icon>
         </button>
       </view>
-      <view class="i-swipeout-demo-button" style="width:60px" bindtap="fanhui">
+      <view wx:if="{{ToolUtils.comparedate(item.date,today)}}"  class="i-swipeout-demo-button" style="width:50px" data-id="{{item._id}}" bindtap="comments">
+          <i-icon size="32" type="iconfong iconchakan"></i-icon>
+      </view>
+      <view class="i-swipeout-demo-button" style="width:50px" bindtap="fanhui">
         <i-icon size="32" type="undo"></i-icon>
       </view>
     </view>

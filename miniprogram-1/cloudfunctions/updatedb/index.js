@@ -17,12 +17,35 @@ exports.main = async(event, context) => {
       .get()
     console.log(sCdata.data[0].data)
     var vdata = sCdata.data[0].data
-    vdata.push(event.data) //event.data
+    vdata.push(event.data) 
     console.log(vdata)
     try {
       return await db.collection(table).doc(event._id).update({
         data: {
           data:vdata
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  } else if (table == event.table) {
+    let sCdata = await db.collection(event.table)
+      .where({
+        _id: event._id
+      })
+      .field({
+        dailyData: true
+      })
+      .get()
+    console.log(sCdata)
+    console.log(sCdata.data[0].dailyData)
+    var vdata = sCdata.data[0].dailyData
+    vdata.push(event.data) //event.data
+    console.log(vdata)
+    try {
+      return await db.collection(event.table).doc(event._id).update({
+        data: {
+          dailyData: vdata
         }
       })
     } catch (e) {

@@ -102,7 +102,7 @@
   <i-panel title="自定义项">
     <view class="line"></view>
     <i-input wx:for="{{apppenddata}}" wx:key="index" title="{{item.title}}" name="{{item.name}}" placeholder="{{item.title}}" />
-    <button class="cu-btn block line-orange lg" bindtap="adddefine">
+    <button class="cu-btn block line-orange lg" style="margin-top:0.2rem" bindtap="adddefine">
     <text class="iconfont iconpictrue-add"></text> 新增自定义项</button>
     <view class="line"></view>
   </i-panel>

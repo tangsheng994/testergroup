@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "工作报告",
+  "usingComponents": {
+    "i-cell-group": "../../dist/cell-group/index",
+    "i-cell": "../../dist/cell/index",
+    "i-button": "../../dist/button/index",
+    "i-swipeout": "../../dist/swipeout/index",
+    "i-icon": "../../dist/icon/index"
+  }
+}

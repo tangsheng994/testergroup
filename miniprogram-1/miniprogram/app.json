@@ -25,7 +25,8 @@
     "pages/flexible /formstart/formstart",
     "pages/flexible /timeline/timeline",
     "pages/faq/faq",
-    "pages/daily/daily"
+    "pages/daily/subdaily/subdaily",
+    "pages/daily/groupdailylist/groupdailylist"
   ],
   "window": {
     "backgroundColor": "#FF7F24",

@@ -1,4 +1,22 @@
 var ToolUtils = {
+  changereport:function(val){
+    if(val=="now"){
+      return '日报'
+    }else if(val=="week"){
+      return '周报'
+    }else{
+      return '月报'
+    }
+  },
+
+  getjsonvaluearray:function(json){
+    var rearray = [];
+    for (var i=0;i<json.length;i++) {
+      rearray.push(json[i]['testgroup']);
+    }
+    return rearray
+  },
+
   jsontostr:function(val){
     return JSON.stringify(val)
   },
@@ -25,6 +43,8 @@ var ToolUtils = {
 }
 
 module.exports = {
+  changereport: ToolUtils.changereport,
+  getjsonvaluearray: ToolUtils.getjsonvaluearray,
   jsontostr: ToolUtils.jsontostr,
   spstr: ToolUtils.spstr,
   deletelastword: ToolUtils.deletelastword,
